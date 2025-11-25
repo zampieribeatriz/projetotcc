@@ -1,0 +1,39 @@
+body{
+        background-color:rgb(70,148,211);
+    }
+    .container-fluid{
+        background-color: rgb(254,248,210);
+        height: 100px;
+        width: 100%;
+    }
+    h1{
+        font-family: Lato, sans-serif;
+        font-size: 35px;
+    }
+
+
+.btn-voltar{
+    position: absolute;
+    top: 15px;
+    border:none;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    cursor: pointer;
+    color: black;
+    display:inline-flex;
+    align-items: center;
+}
+
+.btn-voltar{
+    width: 28px;
+    height: auto;
+    display: block;
+    color: white;
+}
+
+container{
+    align-items: center;
+    width: 400px;
+    height: auto;
+}

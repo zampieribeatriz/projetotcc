@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carteira digital</title><link rel="icon" href="img/circle_blue_transparent.png" type="img-icons">
+  
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {
+background-color: #fff5cc; /* fundo amarelinho */
+font-family: Arial, sans-serif;
+}
+
+/* Cabeçalho azul */
+.header {
+background-color: #468cd3;
+display: flex;
+align-items: center;
+color:rgb(32, 30, 30);
+font-family: 'Arial';
+
+
+}
+
+.header img {
+width: 20px;
+height: 20px;
+}
+
+
+.imgbz {
+    width: 50px;
+    height: 50px;
+}
+.header h1 {
+color: black;
+font-size: 20px;
+flex: 1;
+text-align: center;
+margin: 0;
+
+}
+
+.header .btn-back {
+background: none;
+border: 1px solid black;
+border-radius: 6px;
+padding: 4px 6px;
+font-size: 18px;
+color: black;
+cursor: pointer;
+}
+
+.row{
+background-color: #468cd3;
+  color:#000000;
+}
+
+
+/* Estilo dos inputs */
+.form-box {
+background: #fff5cc; /* fundo amarelinho */
+padding: 20px;
+border-radius: 8px;
+width: 100%;
+max-width: 400px; /* <<< limita largura */
+margin: 20px auto; /* <<< centraliza */
+text-align: left;
+}
+body {
+            background-color:  #fff5cc; /* Fundo azul principal */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Contêiner principal para simular a tela de celular */
+        .screen-container {
+            width: 100%;
+            max-width: 400px; /* Largura típica de celular */
+            min-height: 100vh;
+            margin: 0 auto;
+            background-color: #468cd3; /* Cor azul de fundo */
+            padding: 0;
+        }
+
+        /* Estilo do cabeçalho amarelo claro */
+        .app-header {
+            background-color: #fff5cc; /* Amarelo claro/bege */
+            color: black;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            /* Garante que o cabeçalho se ajuste perfeitamente à largura do container */
+            width: 100%; 
+        }
+        
+        /* Estilo para o ícone (substitua pelo seu ícone de pulmão/coração) */
+        .app-header .icon {
+            margin-right: 10px;
+        }
+
+        /* Estilo dos Botões/Cards de vacinação */
+        .vaccine-button {
+            background-color: #afafaf; /* Azul claro para os botões */
+            border: none;
+            border-radius: 5px;
+            margin: 15px 15px 0 15px;
+            padding: 10px;
+            width: calc(100% - 30px); /* Largura total menos margens laterais */
+            text-align: left;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s;
+            display: block; /* Para garantir que ocupem a largura total */
+        }
+
+        /* Estilo para o primeiro botão (selecionado/destacado) */
+        .vaccine-button.highlight {
+            background-color: #afafaf; /* Azul um pouco mais claro */
+            border: 2px solid #85b0d0; /* Borda sutil para destacar */
+        }
+        
+        /* Estilo ao passar o mouse */
+        .vaccine-button:hover {
+            background-color: #85b0d0;
+        }
+
+        .card-title {
+            font-weight: bold;
+            font-size: 16px;
+            color: #000000; /* Título em azul escuro */
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+        
+        .card-text {
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Removendo a cor de texto branca do Bootstrap na faixa azul */
+        .text-black {
+            color: black !important;
+        }
+        
+        /* Ícone HOME */
+        .home-icon {
+            color: black; /* Cor preta para o ícone */
+        }
+</style>
+</head>
+<body>
+
+<!-- Cabeçalho -->
+ <div class="row">
+            <div class="container-fluid d-flex align-items-center">
+             
+                <img src="img/suspiraorigi.png" alt="logo" width="100" height="100">  
+                <p>
+                  <p>
+                  
+                <h1 class="text-light align-content-center justify-content-center align-middle"><p>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤCarteira digital ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</h1>
+                <a class="navbar-brand" href="#"></a>
+                <div class="dropdown">
+            <a class="btn btn-home" href="/index.html" role="button"><img src="img/back.png" width="32" height="32"></a>
+               <!--  <button class="btn btn-back" type="button"><img src="img/back1.png" width="32" height="32"></i></button>-->
+        </div>
+                </div>
+            </div>
+        </div>
+            </div>
+
+
+
+    <div class="content-body">
+        
+        <button type="button" class="vaccine-button highlight" href="carteira-digital.html">
+            <p class="card-title">Carteira SUS digital - SP</p>
+            <p class="card-text">Rosa Maria</p>
+            <p class="card-text">000 0000 0000 0000</p>
+        </button>
+
+        <button type="button" class="vaccine-button">
+            <p class="card-title">Carteira SUS digital - SP</p>
+            <p class="card-text">Ricardo Carvalho</p>
+            <p class="card-text">000 0000 0000 0000</p>
+        </button>
+        
+        </div>
+    
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

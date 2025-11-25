@@ -1,0 +1,141 @@
+/* GERAL */
+body{
+        background-color: rgb(254,248,210);
+    }
+    .container-fluid{
+        background-color:rgb(70,148,211);
+        height: 100px;
+    }
+
+/* CONTAINER PRINCIPAL */
+.main-container {
+    width: 450px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+/* HEADER */
+.header-custom {
+    background: rgb(70,148,211); /* Cor de fundo para o cabeçalho Bootstrap */
+}
+
+/*.header-custom img {
+    /* Estilo de imagem no cabeçalho */
+
+/* CONTEÚDO */
+.content {
+    background: #fef3d3;
+    padding: 20px;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 15px; /* Ajuste para espaçamento consistente */
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%; /* Ajustado para 100% */
+    padding: 12px;
+    margin: 8px 0;
+    border: 2px solid #d8c6ff;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.camera-btn {
+    position: absolute;
+    /* Ajustes na posição para centralizar no campo de texto */
+    right: 5px; 
+    top: 50%;
+    transform: translateY(-50%); 
+    cursor: pointer;
+}
+
+.btn-green {
+    display: block;
+    width: 100%;
+    background: #93e6a4;
+    border: none;
+    padding: 12px;
+    margin-top: 20px; /* Mais espaço após o botão */
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.card-custom { /* Usando card-custom para diferenciar do card do Bootstrap */
+    background: white;
+    width: 48%;
+    border: 2px solid #d5e7ff;
+    border-radius: 8px;
+    text-align: center;
+    padding: 12px;
+}
+
+.card-img-placeholder { /* Novo seletor para o placeholder da imagem */
+    width: 70px;
+    height: 70px;
+    background: #ddd;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.btn-small {
+    margin-top: 8px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background: #e6f0ff;
+    font-size: 12px; /* Ajuste para o botão menor */
+}
+
+.remove-btn {
+    background: #ffb3b3;
+}
+
+/* CAMPO RESPONSÁVEL */
+.responsavel-section {
+    margin-top: 30px; /* Mais espaço antes desta seção */
+    text-align: center;
+}
+
+.usar-btn {
+    width: 80%;
+    padding: 12px;
+    background: #93e6a4;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Espaço antes do fim do content */
+}
+
+/* RODAPÉ */
+.footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 13px;
+    background-color: #f8f9fa; /* Adicionado um fundo claro para destacar */
+    border-top: 1px solid #eee;
+}
+
+.footer a {
+    color: #004eff;
+}
+.btn{
+    background-color: rgb(70,148,211);
+    
+}

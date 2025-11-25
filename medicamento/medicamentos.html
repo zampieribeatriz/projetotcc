@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Medicamentos</title><link rel="icon" href="img/circle_blue_transparent.png" type="img-icons">
+</head>
+<style>
+    body{
+        background-color: rgb(254,248,210);
+    }
+
+        @media (max-width: 768px) { /*Fixo para UBS's perto de mim*/
+  .campos {
+    padding: 25px;       
+    margin-bottom: 30px; 
+    min-height: 500px;   
+  }
+
+  .campo {
+    padding: 40px;     
+    font-size: 20px;    
+  }
+
+  .img-ubs {
+    max-width: 200px;    
+    margin-top: 20px;   
+  }
+
+}
+
+    .container-fluid{
+        background-color: rgb(70,148,211);
+        height: 100px;
+    }
+
+    .title-principal{
+        margin-top: 40px;
+        margin-left: -120px;
+    }
+
+    .title{
+        margin: 70px;
+        background-color: #4693d38c;
+        font-size: 23px;
+    }
+
+    .title-agendamentos{
+        font-size: 19px;
+    }
+
+    .card-group-primary{
+        margin-left: 820px;
+        margin-right: 820px;
+    }
+    .primary-button{
+        width: -60px;
+    }
+
+    .card{
+        margin: 20px;
+        height: 200px;
+    }
+
+    .card-group{
+        margin-left: 700px; 
+        margin-right: 700px;
+    }
+
+    .card-img-top{
+        width: 40px;
+        height: 40px;
+    }
+
+    .responsaveis{
+        width: 50px;
+        height: 50px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+    .ubs{
+        width: 50px;
+        height: 50px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+    .retirada{
+        width: 50px;
+        height: 50px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        
+    }
+
+    .funccard{
+        background-color: #71BC94;
+        border-radius: 10px;
+        color:aliceblue;
+    }
+
+    .title-horarios{
+        font-size: 26px;
+        font-weight: bold;
+        margin-top: 60px;
+    }
+
+    .subtitle-horarios{
+        font-size: 22px;
+        margin-top: 4px;
+        color: #605F5F;
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+    .card-title{
+      color: #ffffff;
+    }
+
+    .campos{
+      border: 2px solid #7749F8;
+      box-shadow: 0 0 4px 4px  #7849f869;
+    }
+
+        .title-nome-ubs{  /*Fixo para UBS's perto de mim*/
+        font-size: 40px;
+        margin-bottom: -15px;
+    }
+
+    .title-localizacao-ubs{  /*Fixo para UBS's perto de mim*/
+        font-size: 30px;
+    }
+
+    .title-horario-ubs{  /*Fixo para UBS's perto de mim*/
+        margin-top: 20px;
+    }
+
+    .title-telefone-ubs{  /*Fixo para UBS's perto de mim*/
+        margin-top: 10px;
+    }
+
+  .img-ubs {  /*Fixo para UBS's perto de mim*/
+  max-width: 250px;  
+  width: 100%;       
+  height: auto;       
+  margin: 0 auto;     
+  display: block;
+}
+
+
+    .img-ubs:hover {  /*Fixo para UBS's perto de mim*/
+  transform: scale(1.05);
+}
+
+.campos:hover {  /*Fixo para UBS's perto de mim*/
+  background-color: #e6e6e6;
+  transition: background-color 0.3s ease;
+}
+
+    .card-body :hover{  /*Fixo para UBS's perto de mim*/
+      background-color: #ffffff00;
+    }
+
+    .link:hover{ /*Fixo para UBS's perto de mim*/
+  color: black;
+}
+
+.link{  /*Fixo para UBS's perto de mim*/
+  text-decoration: none;
+  color:black;
+}
+
+@media (min-width: 769px) and (max-width: 991px) { /*Fixo para UBS's perto de mim*/
+  .campos {
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 400px;
+  }
+
+  .title-localizacao-ubs {
+    font-size: 24px;
+  }
+}
+    
+</style>
+<body>
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/68da791d311aad1952561541/1j6ami6qq';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<body>
+
+                <div class="row">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+    <!-- Logo -->
+    <img src="img/suspiraorigi.png" alt width="100" height="100">  
+
+    <h1 class="title-principal text-dark text-center flex-grow-1">
+      Medicamentos
+    </h1>
+
+    <div class="dropdown d-flex">
+      <a class="btn" href="/configuracao/Perfil.html" role="button">
+        <img src="img/conta.png" width="32" height="32">
+      </a>
+      <button class="btn btn-back" type="button" href="/index.html">
+        <img src="img/setaback.png" width="32" height="32">
+      </button>
+    </div>
+  </div>
+</div>
+
+        <div class="title alert fw-bold text-center" role="alert">
+  Retirada de Medicamentos na farmácia UBS
+</div>
+
+<div class="title-agendamentos fw-bold text-center">Agendamento</div>
+<div class="container">
+  <a href="#">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-3">
+      <div class="funccard card">
+        <img src="img/icons/responsaveis.svg" class="responsaveis card-img-top img-fluid mx-auto d-block" alt="Responsável Retirada">
+        <div class="card-body text-center">
+          <h5 class="card-title">Responsável Retirada</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <!-- Card 1 -->
+     <a href="ubs_s/ubs_s/ubs.html">
+    <div class="col-md-6 col-lg-3">
+      <div class="funccard card">
+        <img src="img/icons/ubs.svg" class="ubs card-img-top img-fluid mx-auto d-block" alt="UBS">
+        <div class="card-body text-center">
+          <h5 class="card-title">UBS</h5>
+        </div>
+      </div>
+    </a>
+    </div>
+
+    <!-- Card 2 -->
+     
+    <div class="col-md-6 col-lg-3">
+      <div class="funccard card">
+        <a href="retirada.html">
+        <img src="img/icons/retirada.svg" class="retirada card-img-top img-fluid mx-auto d-block" alt="Retirada">
+        <div class="card-body text-center">
+          <h5 class="card-title">Retirada</h5>
+        </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!--Título: "UBS's mais próximas de mim"-->
+<div class="container">
+  <div class="title-horarios fw-bold">Horários de funcionamento das UBS’s</div>
+  <div class="subtitle-horarios">UBS’s mais próximas de mim</div>
+  <!--Fim Título: "UBS's mais próximas de mim"-->
+
+  <!--Campo UBS Vila Magini-->
+  <a class="link" href="https://maps.app.goo.gl/e3FriNTbS7Y2WwD68">
+<div class="row justify-content-center mt-4">
+  <div class="col-12 col-md-10 col-lg-12">
+    <div class="campos card mb-4">
+      <div class="row g-0 align-items-center">
+      <!-- Texto -->
+  <div class="col-12 col-md-8">
+    <div class="card-body">
+      <h5 class="title-nome-ubs fw-bold">UBS VILA MAGINI</h5>
+      <p class="title-localizacao-ubs">R. David Boscariol</p>
+      <p class="title-horario-ubs">Horário de Funcionamento: 07:00–21:00</p>
+      <p class="title-telefone-ubs">Telefone: (11) 4512-7756</p>
+    </div>
+  </div>
+
+  <!-- Imagem -->
+  <div class="col-12 col-md-4 text-center">
+    <img src="./img/ubs_magini.png" 
+         class="img-ubs img-fluid rounded-end" 
+         alt="UBS Vila Magini">
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+</a>
+<!--Fim Campo UBS Vila Magini-->
+
+
+<!--Campo UBS Jardim Mauá-->
+<a class="link" href="https://maps.app.goo.gl/N4Eb8qns4Ahoeq4A8">
+<div class="row justify-content-center mt-4">
+  <div class="col-12 col-md-10 col-lg-12">
+    <div class="campos card mb-4">
+      <div class="row g-0 align-items-center">
+      <!-- Texto -->
+  <div class="col-12 col-md-8">
+    <div class="card-body">
+      <h5 class="title-nome-ubs fw-bold">UBS JARDIM MAUÁ</h5>
+      <p class="title-localizacao-ubs">Av. Joaquim Chavasco, 71</p>
+      <p class="title-horario-ubs">Horário de Funcionamento: 07:00–17:00</p>
+      <p class="title-telefone-ubs">Telefone: (11) 4512-7749</p>
+    </div>
+  </div>
+
+  <!-- Imagem -->
+  <div class="col-12 col-md-4 text-center">
+    <img src="./img/ubs_jardimMaua.jpg" 
+         class="img-ubs img-fluid rounded-end" 
+         alt="UBS Vila Magini">
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+</a>
+<!--Fim Campo UBS Jardim Mauá--->
+
+
+<!--Campo UBS Itapark--->
+<a class="link" href="https://maps.app.goo.gl/AtA1PmSJTw52EBEu7">
+<div class="row justify-content-center mt-4">
+  <div class="col-12 col-md-10 col-lg-12">
+    <div class="campos card mb-4">
+      <div class="row g-0 align-items-center">
+  <!-- Texto -->
+  <div class="col-12 col-md-8">
+    <div class="card-body">
+      <h5 class="title-nome-ubs fw-bold">UBS ITAPARK</h5>
+      <p class="title-localizacao-ubs">Av. Itapark, 4189</p>
+      <p class="title-horario-ubs">Horário de Funcionamento: 07:00–17:00</p>
+      <p class="title-telefone-ubs">Telefone: (11) 4512-7748</p>
+    </div>
+  </div>
+
+  <!-- Imagem -->
+  <div class="col-12 col-md-4 text-center">
+    <img src="./img/ubs_itapark.jpg" 
+     class="img-ubs img-fluid rounded-end mx-auto d-block" 
+     alt="UBS Vila Magini">
+
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+</a>
+<!--Fim Campo UBS Itapark--->
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>

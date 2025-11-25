@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Acessibilidade</title>
+</head>
+<style>
+        body{
+        background-color: rgb(70,148,211); 
+    }
+
+        .container-fluid{
+        background-color: rgb(254,248,210);
+        height: 100px;
+    }
+
+    .acessibilidade-container {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: rgb(254,248,210);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+
+    .acessibilidade-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .checkbox-group .form-check {
+      margin-bottom: 10px;
+    }
+
+    .v-libras-btn {
+      background-color: #71bc94d7;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .icon-section {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .access-icon {
+      width: 120px;
+      height: auto;
+    }
+
+    .alto-contraste {
+  background-color: #000 !important;
+  color: #050505 !important;
+}
+
+.fonte-grande {
+  font-size: 20px !important;
+}
+
+
+    @media (max-width: 768px) {
+      .acessibilidade-title {
+        font-size: 20px;
+      }
+
+      .access-icon {
+        width: 80px;
+      }
+
+      .v-libras-btn {
+        width: 100%;
+      }
+    }
+
+    /* Simulação de daltonismo (protanopia) */
+.daltonismo {
+  filter: url('#protanopia');
+}
+
+/* Alternativa simples: dessaturar cores */
+.daltonismo {
+  filter: grayscale(100%);
+}
+
+.zoom-ativado {
+    transform: scale(1.1); /* Aumenta a escala em 10% */
+    transform-origin: top left; /* Garante que o zoom comece do canto superior esquerdo */
+    width: 100%; /* Garante que a largura se ajuste */
+    min-height: 100vh; /* Garante que a altura se ajuste */
+}
+
+/* -------------------------------------- */
+/* 2. Notificação Visual (Toast)          */
+/* -------------------------------------- */
+#visual-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    background-color: #4CAF50; /* Padrão: Sucesso (Verde) */
+    color: white;
+    font-weight: bold;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden; 
+    transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
+    transform: translateY(-50px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#visual-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Estilos de contexto */
+#visual-toast.success { background-color: #4CAF50; } /* Verde */
+#visual-toast.error { background-color: #f44336; }   /* Vermelho */
+#visual-toast.info { background-color: #2196F3; }    /* Azul */
+
+/* Estilos para os novos botões de teste */
+.btn-primary { background-color: #0d6efd; color: white; }
+.btn-danger { background-color: #dc3545; color: white; }
+
+
+    </style>
+    
+<body>
+  <div id="live-region" 
+     aria-live="polite" 
+     aria-atomic="true" 
+     role="status" 
+     style="position: absolute; top: -9999px; left: -9999px;">
+</div>
+
+<div id="visual-toast"></div>
+
+                <div class="row">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+    <!-- Logo -->
+    <img src="img/suspiraorigi.png" alt width="100" height="100">  
+
+    <h1 class="title-principal text-dark text-center flex-grow-1">
+      Acessibilidade
+    </h1>
+
+    <div class="dropdown d-flex">
+      <a class="btn" href="#" role="button">
+        <img src="img/conta.png" width="32" height="32">
+      </a>
+      <button class="btn btn-back" type="button">
+        <img src="img/setaback.png" width="32" height="32">
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container acessibilidade-container">
+    <div class="acessibilidade-title">Configurações de Acessibilidade</div>
+
+    <div class="row checkbox-group">
+      <div class="col-md-6">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="contraste">
+          <label class="form-check-label" for="contraste">Alto contraste</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="daltonismo">
+          <label class="form-check-label" for="daltonismo">Daltonismo</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="notificacoes" checked>
+          <label class="form-check-label" for="notificacoes">Notificações visuais</label>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="zoom">
+          <label class="form-check-label" for="zoom">Zoom</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="fonte">
+          <label class="form-check-label" for="fonte">Fonte grande</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="texto">
+          <label class="form-check-label" for="texto">Texto alternativo</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="audio">
+          <label class="form-check-label" for="audio">Audiodescrição</label>
+        </div>
+      </div>
+    </div>
+
+    <a href="../VLIBRAS/vlibras.html">
+    <button class="v-libras-btn">VLIBRAS</button>
+    </a>
+
+    
+  </div>
+  <div class="icon-section">
+      <img class="acessibility" src="./img/acessibilidade.png" alt="Ícone de acessibilidade" class="access-icon">
+    </div>
+
+<script>
+// Elementos do DOM
+const liveRegion = document.getElementById('live-region');
+const visualToast = document.getElementById('visual-toast');
+const notificacoesCheckbox = document.getElementById('notificacoes');
+
+// --- Função de Notificação ---
+
+/**
+ * Exibe uma notificação visualmente e a anuncia para leitores de tela.
+ * @param {string} message - A mensagem a ser exibida.
+ * @param {string} type - O tipo de notificação ('success', 'error', 'info').
+ */
+function showNotification(message, type) {
+    // 1. LÓGICA ARIA LIVE REGION (Acessibilidade - Sempre ativa)
+    liveRegion.setAttribute('role', 'status');
+    liveRegion.setAttribute('aria-live', 'polite');
+    liveRegion.textContent = message;
+
+    // 2. LÓGICA VISUAL TOAST (Design - Só se o checkbox de Notificações Visuais estiver marcado)
+    if (notificacoesCheckbox && notificacoesCheckbox.checked) {
+        
+        visualToast.classList.remove('success', 'error', 'info');
+        visualToast.classList.add(type);
+        visualToast.textContent = message;
+        visualToast.classList.add('show');
+        
+        const duration = 3000; // Tempo de exibição da notificação (3 segundos)
+        
+        setTimeout(() => {
+            visualToast.classList.remove('show');
+            
+            // Limpa a live region com pequeno atraso para leitores de tela
+            setTimeout(() => {
+                liveRegion.textContent = ''; 
+            }, 500);
+            
+        }, duration); 
+    }
+}
+
+
+// --- Funções Principais de Acessibilidade e Salvamento ---
+
+// Aplica estilos visuais com base nas opções
+function aplicarEstilos(config) {
+    // 1. Alto Contraste
+    document.body.classList.toggle("alto-contraste", config.contraste);
+
+    // 2. Fonte Grande
+    document.body.classList.toggle("fonte-grande", config.fonte);
+
+    // 3. Daltonismo
+    document.body.classList.toggle("daltonismo", config.daltonismo);
+
+    // 4. ZOOM
+    document.body.classList.toggle("zoom-ativado", config.zoom); 
+}
+
+
+// Aplica configurações salvas ao carregar
+window.onload = function () {
+    const settings = JSON.parse(localStorage.getItem("acessibilidade")) || {};
+    for (const key in settings) {
+        const checkbox = document.getElementById(key);
+        if (checkbox) {
+            checkbox.checked = settings[key];
+        }
+    }
+    aplicarEstilos(settings);
+    
+    // Notificação ao carregar
+    showNotification("Configurações de acessibilidade carregadas.", 'info');
+};
+
+
+// Escuta mudanças nos checkboxes e SALVA AUTOMATICAMENTE
+const checkboxes = document.querySelectorAll(".form-check-input");
+checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", (event) => {
+        const settings = {};
+        checkboxes.forEach((cb) => {
+            settings[cb.id] = cb.checked;
+        });
+        
+        // SALVAMENTO AUTOMÁTICO
+        localStorage.setItem("acessibilidade", JSON.stringify(settings));
+        
+        // Aplica os novos estilos
+        aplicarEstilos(settings);
+        
+        // --- NOVIDADE: Lógica da Notificação de Estado ---
+        const isChecked = event.target.checked;
+        const label = event.target.nextElementSibling.textContent;
+        
+        let statusMessage;
+        let icon;
+
+        if (isChecked) {
+            icon = "✅";
+            statusMessage = "ativado";
+        } else {
+            icon = "➖"; // Usando um ícone diferente para desativação
+            statusMessage = "desativado";
+        }
+
+        // Notificação Completa
+        showNotification(`${icon} "${label}" ${statusMessage} e salvo automaticamente.`, 'success');
+    });
+});
+</script>
+
+
+</body>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>

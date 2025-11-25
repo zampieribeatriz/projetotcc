@@ -1,0 +1,104 @@
+body {
+  background-color: #fff5cc; /* cor da tela */
+}
+
+h5 {
+  font-weight: bold;
+  color: #333;
+}
+
+h3{
+font-size: 24px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    padding: 20px;
+    background-color: rgb(70,148,211);
+    color:white;
+    font-family: 'Arial';
+}
+
+bg-light{
+    background-color: #fff5cc;
+}
+
+.row{
+  background-color: rgb(70,148,211);
+  color:white;
+}
+
+/* Remove o azul padrão do Bootstrap */
+.btn-outline-primary {
+color: #0066cc; /* cor da borda e do texto */
+border-color: #0066cc;
+transition: all 0.3s ease;
+}
+
+/* Define o novo comportamento ao passar o mouse */
+.btn-outline-primary:hover {
+background-color: #70aae0; /* azul claro que combina com o topo */
+color: white; /* texto branco */
+border-color: #70aae0; /* borda igual à cor de fundo */
+}
+
+.medico-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover; /* garante que a imagem preencha o espaço */
+}
+
+.medica-img{
+     width: 80px;
+  height: 80px;
+  object-fit: cover; /* garante que a imagem preencha o espaço */
+}
+
+/* --- Seção Meus Agendamentos --- */
+.my-appointments {
+    background-color: var(--light-yellow);
+    text-align: center;
+}
+
+.appointment-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color-gray);
+    font-weight: 500;
+}
+
+.rotating-icon {
+    font-size: 24px;
+    color: var(--primary-blue);
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.cor{
+  background-color: #73bf91;
+  color:white;
+}
+
+
+@media screen and (max-width: 768px) {
+  .body {
+    display: block;
+    background-image:none;
+
+  }
+}

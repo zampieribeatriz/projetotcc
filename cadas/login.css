@@ -1,0 +1,84 @@
+body {
+            margin: 20;
+            font-family: Arial, sans-serif;
+            background: #e5eef7;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 420px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* Parte superior */
+        .top-section {
+            background: #fdf4d0;
+            text-align: center;
+            padding: 50px 30px;
+        }
+
+        .top-section img {
+            width: 200px;
+            margin-bottom: 15px;
+        }
+
+        .titulo {
+            font-size: 24px;
+            font-weight: bold;
+            background: white;
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 5px;
+        }
+
+        .subtitulo {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #444;
+        }
+
+        /* Parte do formulário */
+        .form-section {
+            background:rgb(70,148,211);
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .form-section input {
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid rgb(70,148,211);
+            margin-bottom: 12px;
+        }
+
+        .form-section a {
+            font-size: 12px;
+            color: #000;
+        }
+
+        .entrar-btn {
+            width: 50%;
+            padding: 10px;
+            margin-top: 15px;
+            background: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .rodape {
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+        }
+
+        .rodape {
+            color: white;
+        }

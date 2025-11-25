@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Horários Exame</title>
+   <link rel="icon" href="img/circle_blue_transparent.png" type="img-icons">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body {
+    /* FIX: Remove a margem padrão do navegador para o banner ir até o topo */
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+
+    background-color: #fff5cc;
+    font-family: Arial, sans-serif;
+    /* Removido padding-top: 10px; para o banner colar no topo */
+}
+
+.row {
+    background-color: rgb(70,148,211);
+    color: white;
+    margin-bottom: 30px; 
+}
+
+.row .container-fluid {
+    padding: 10px 15px; 
+}
+
+.header-title {
+    flex-grow: 1; 
+    text-align: center;
+    color: white !important;
+    margin: 0; 
+}
+
+.form-box {
+    width: 600px;
+    margin: 40px auto; 
+    font-family: sans-serif;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-container {
+    width: 400px;
+    margin: 30px auto; 
+    font-family: sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo padronizado para as mensagens de status */
+.alerta {
+    padding: 20px;
+    text-align: center;
+    width: 90%; 
+    max-width: 600px; /* Ajustei o max-width para o tamanho do form-box */
+    margin: 20px auto;
+    border-radius: 6px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.time-slot-selected {
+    background-color: #337ab7 !important; 
+    color: white !important; 
+    border-color: #337ab7 !important;
+}
+
+.time-slot:hover:not(.time-slot-selected) {
+    background-color: #337ab7;
+    color: white;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #337ab7;
+    color: white;
+    padding: 10px;
+    width: 400px;
+    border-radius: 8px 8px 0 0;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar-table th,
+.calendar-table td {
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+}
+
+.calendar-table th {
+    background-color: #f0f0f0;
+}
+
+.calendar-table td {
+    cursor: pointer;
+    height: 40px;
+}
+
+.calendar-table td:hover .day-wrapper {
+    background-color: #e6e6e6;
+}
+
+.day-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    color: black;
+}
+
+.today .day-wrapper {
+    background-color: #ffeb3b;
+}
+
+.exhausted-day .day-wrapper {
+    color: red !important;
+    border: 1px solid red;
+}
+
+.available-day .day-wrapper {
+    color: black !important;
+}
+
+.selected-day .day-wrapper {
+    background-color: #337ab7 !important;
+    color: white !important;
+}
+
+#status-display {
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+.status-esgotado {
+    background-color: #ffcccc;
+    color: #cc0000;
+}
+.status-disponivel {
+    background-color: #ccffcc;
+    color: #006600;
+}
+
+.doctor-schedule-box {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+    min-height: 100px;
+}
+
+.time-slot {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    border: 1px solid #337ab7;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #337ab7;
+    background-color: white;
+    transition: background-color 0.2s;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #337ab7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #285a8e;
+}
+
+/* Classe auxiliar para esconder elementos */
+.d-none {
+    display: none !important;
+}
+</style>
+</head>
+
+<body>
+
+<div class="row">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+            <img src="img/suspiraorigi.png" alt="Logo" width="100" height="100">
+            <h1 class="header-title">Horários Exame</h1>
+        </div>
+        <a class="btn btn-home" href="#" role="button">
+            <img src="img/back.png" width="32" height="32" alt="Voltar">
+        </a>
+    </div>
+</div>
+
+<div id="msgSucesso" class="alerta d-none" style="background-color: #ccffcc; color: #006600;">
+    Agendamento Confirmado!<br>Seu horário foi marcado com sucesso.
+</div>
+
+<div id="msgErro" class="alerta d-none" style="background-color: #ffcccc; color: #cc0000;">
+    Erro ao Marcar:<br>Não foi possível completar o agendamento.
+</div>
+<div class="form-box">
+    <form id="cadastroForm">
+        <div class="input-group">
+            <label for="idcartao">Unidade</label>
+            <input type="text" id="idcartao" name="idcartao" required>
+        </div>
+
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prevBtn" type="button">&lt;</button>
+                <h2 id="monthAndYear"></h2>
+                <button id="nextBtn" type="button">&gt;</button>
+            </div>
+            <table class="calendar-table" id="calendarTable">
+                <thead>
+                    <tr id="weekdays">
+                        <th>Dom</th>
+                        <th>Seg</th>
+                        <th>Ter</th>
+                        <th>Qua</th>
+                        <th>Qui</th>
+                        <th>Sex</th>
+                        <th>Sáb</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body"></tbody>
+            </table>
+        </div>
+
+        <div id="status-display" class="status-disponivel">
+            Dias com horários disponíveis
+        </div>
+
+        <div id="doctor-schedules" class="doctor-schedule-box">
+            <p class="text-center text-muted m-0">
+                Selecione uma data no calendário para ver os horários disponíveis.
+            </p>
+        </div>
+
+        <br>
+        <button type="submit">Marcar exame </button>
+    </form>
+</div>
+
+<script>
+const AVAILABILITY_DATA = {
+   
+    10: { status: 1, medicos: [] }, 
+    14: { status: 1, medicos: [] }, 
+    24: { status: 0, medicos: [] }, 
+    
+   
+    3: { status: 0, medicos: [ 
+        { nome: "Dra Alice Ferreira", horarios: ["10:00", "10:40", "11:30", "12:00"] },
+        { nome: " Dra Tainá Lopes", horarios: ["13:00", "13:30", "14:00"] }
+    ]},
+    5: { status: 0, medicos: [
+        { nome: "Dr Carlos Lima", horarios: ["09:00", "09:30", "14:00", "16:00"] }
+    ]},
+
+    12: { status: 0, medicos: [
+        { nome: "Dr. Roberto Silva", horarios: ["08:30", "09:00", "09:30", "10:00", "11:00"] }
+    ]},
+    17: { status: 0, medicos: [
+        { nome: "Dra Alice Ferreira", horarios: ["15:00", "15:30", "16:00", "16:30"] }
+    ]},
+    20: { status: 0, medicos: [
+        { nome: "Dr Carlos Lima", horarios: ["10:00", "10:30"] },
+        { nome: " Dra Tainá Lopes", horarios: ["14:00", "14:30", "15:00", "16:00"] }
+    ]}
+};
+
+const monthAndYear = document.getElementById("monthAndYear");
+const calendarBody = document.getElementById("calendar-body");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const statusDisplay = document.getElementById("status-display");
+const doctorSchedules = document.getElementById("doctor-schedules");
+const cadastroForm = document.getElementById('cadastroForm');
+
+const msgSucesso = document.getElementById('msgSucesso');
+const msgErro = document.getElementById('msgErro');
+
+const today = new Date();
+let currentMonth = 10; 
+let currentYear = 2025;
+let selectedDay = 3; 
+let selectedTime = null; 
+
+const months = [
+    "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
+    "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"
+];
+
+function getDayAvailability(day) {
+    return AVAILABILITY_DATA[day] || { status: 0, medicos: [] }; 
+}
+
+
+function hideMessages() {
+    msgSucesso.classList.add('d-none');
+    msgErro.classList.add('d-none');
+}
+
+function showErrorMessage(message) {
+    msgErro.innerHTML = `Erro ao Marcar:<br>${message}`;
+    msgErro.classList.remove('d-none');
+    window.scrollTo(0, 0); 
+}
+
+function showSuccessMessage() {
+    msgSucesso.classList.remove('d-none');
+    window.scrollTo(0, 0); 
+}
+
+function addTimeSlotListeners() {
+    const slots = doctorSchedules.querySelectorAll('.time-slot');
+    slots.forEach(slot => {
+        slot.addEventListener('click', (event) => {
+            
+            document.querySelectorAll('.time-slot-selected').forEach(s => {
+                s.classList.remove('time-slot-selected');
+            });
+            
+            const clickedSlot = event.target;
+            clickedSlot.classList.add('time-slot-selected');
+
+            selectedTime = clickedSlot.textContent;
+            console.log(`Horário selecionado: ${selectedTime}`);
+            
+            hideMessages(); 
+        });
+    });
+}
+
+
+function updateScheduleDisplay(day) {
+    const dayData = getDayAvailability(day);
+
+    const isExhausted = dayData.status === 1 || dayData.medicos.length === 0; 
+
+    statusDisplay.classList.remove('status-esgotado', 'status-disponivel');
+    statusDisplay.classList.add(isExhausted ? 'status-esgotado' : 'status-disponivel');
+    statusDisplay.textContent = isExhausted ? 'Horários esgotados' : 'Dias com horários disponíveis';
+
+    let html = `<h5 class="mb-3 text-primary">Horários para ${day}/${currentMonth + 1}/${currentYear}</h5>`;
+    
+    if (dayData.status === 1) {
+        html += `<p class="alert alert-danger text-center">Nenhum horário disponível (Esgotado).</p>`;
+    } else if (dayData.medicos.length === 0) {
+        html += `<p class="alert alert-info text-center">Nenhum médico encontrado para esta data.</p>`;
+    } else {
+        dayData.medicos.forEach(m => {
+            html += `<div class="mt-3"><p class="fw-bold mb-1">${m.nome}</p>
+            ${m.horarios.map(h => `<span class="time-slot">${h}</span>`).join('')}</div>`;
+        });
+    }
+    doctorSchedules.innerHTML = html;
+    
+    addTimeSlotListeners(); 
+    hideMessages(); 
+}
+
+function generateCalendar(month, year) {
+    calendarBody.innerHTML = "";
+    monthAndYear.textContent = months[month] + " " + year;
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    
+    selectedTime = null; 
+    updateScheduleDisplay(selectedDay);
+
+    let date = 1;
+    for (let i = 0; i < 6; i++) {
+        let row = document.createElement("tr");
+        for (let j = 0; j < 7; j++) {
+            let cell = document.createElement("td");
+            if (i === 0 && j < firstDay) {
+                row.appendChild(cell);
+            } else if (date > daysInMonth) {
+                break;
+            } else {
+                const d = date;
+                let wrap = document.createElement("div");
+                wrap.classList.add("day-wrapper");
+                wrap.textContent = d;
+                cell.appendChild(wrap);
+
+                const isToday = (d === today.getDate() && month === today.getMonth() && year === today.getFullYear());
+                const isSelected = (d === selectedDay && month === currentMonth && year === currentYear);
+                const data = getDayAvailability(d);
+
+                const isExhausted = data.status === 1 || data.medicos.length === 0; 
+                
+                cell.classList.add(isExhausted ? "exhausted-day" : "available-day");
+                if (isToday) cell.classList.add("today");
+                if (isSelected) cell.classList.add("selected-day");
+
+                cell.addEventListener("click", () => {
+                    document.querySelectorAll('.selected-day').forEach(e => e.classList.remove('selected-day'));
+                    selectedDay = d;
+                    cell.classList.add("selected-day");
+                    updateScheduleDisplay(selectedDay);
+                });
+
+                row.appendChild(cell);
+                date++;
+            }
+        }
+        calendarBody.appendChild(row);
+    }
+}
+
+prevBtn.onclick = () => {
+    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+    selectedDay = 1;
+    generateCalendar(currentMonth, currentYear);
+};
+
+nextBtn.onclick = () => {
+    currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+    currentMonth = (currentMonth + 1) % 12;
+    selectedDay = 1;
+    generateCalendar(currentMonth, currentYear);
+};
+
+generateCalendar(currentMonth, currentYear);
+
+
+
+cadastroForm.addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    
+    hideMessages(); 
+    
+    const dayData = getDayAvailability(selectedDay);
+    const dataAgendamento = `${selectedDay}/${currentMonth + 1}/${currentYear}`;
+
+    const unidadeInput = document.getElementById('idcartao');
+    if (unidadeInput.value.trim() === "") {
+        showErrorMessage("O campo 'Unidade' é obrigatório.");
+        return;
+    }
+
+    if (dayData.status === 1 || dayData.medicos.length === 0) {
+        showErrorMessage(`Não há horários disponíveis para o dia ${dataAgendamento}. Por favor, escolha outra data.`);
+        return;
+    }
+    if (!selectedTime) {
+         showErrorMessage(`O dia ${dataAgendamento} tem horários, mas você precisa selecionar um horário específico.`);
+         return;
+    }
+    console.log(`Agendamento Confirmado: Unidade: ${unidadeInput.value}, Data: ${dataAgendamento}, Horário: ${selectedTime}`);
+    
+    showSuccessMessage(); 
+});
+</script>
+
+</body>
+</html>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/68da791d311aad1952561541/1j6ami6qq';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->

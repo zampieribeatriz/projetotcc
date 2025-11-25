@@ -1,0 +1,41 @@
+/* Estilização para os cards/opções de menu */
+.card-dados, .opcao-menu {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #c3a1e9; /* Borda roxa clara */
+    display: flex; /* Para alinhar o conteúdo */
+    justify-content: space-between; /* Para colocar itens em pontas opostas */
+    align-items: center;
+}
+
+/* Estilização para os botões */
+.botao-principal {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    background-color: #5b95c9; /* Azul similar ao da imagem */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.container-fluid{
+        background-color: rgb(254,248,210);
+        height: 100px;
+    }
+    h1{
+        font-family: Lato, sans-serif;
+        font-size: 35px;
+    }
+
+
+

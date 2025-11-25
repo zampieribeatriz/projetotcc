@@ -1,0 +1,185 @@
+<!--Falta mexer no nav principal-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento SUS</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styleexame.css">
+</head>
+
+<style>
+  
+.bg-light{
+        background-color: rgb(70,148,211);
+        height: 100px;
+    }
+
+.btn-voltar{
+    position: absolute;
+    top: 15px;
+    border:none;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    cursor: pointer;
+    color: black;
+    display:inline-flex;
+    align-items: center;
+}
+
+.btn-voltar{
+    width: 28px;
+    height: auto;
+    display: block;
+}
+
+body{
+    background-color: #fff5cc;
+}
+
+.container {
+            max-width: 1000px;
+            margin: 50px auto;
+            background-color: #fff5cc;
+            padding: 30px;
+            border-radius: 8px;
+
+            
+}
+
+
+
+</style>
+
+
+<body>
+
+         <div class="row">
+            <div class="container-fluid d-flex align-items-center">
+              <br>
+                <img src="img/suspiraorigi.png" alt="" width="100" height="100">  
+                <p>
+                  <p>
+                <h1 class="text-light align-content-center justify-content-center align-middle"><p>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤEXAMESㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</h1>
+                <a class="navbar-brand" href="#"></a>
+                <div class="dropdown">
+            <a class="btn btn-home" href="/GWC-SUSPIRA/GWC-SUSPIRA/index.html" role="button"><img src="img/home.png" width="32" height="32"></a>
+               <!--  <button class="btn btn-back" type="button"><img src="img/back1.png" width="32" height="32"></i></button>-->
+        </div>
+                </div>
+            </div>
+        </div>
+
+        <!----
+    <header class="main-header">
+        <div class="header-title">
+            
+            <img class="float-start d-block"  src="img/suspiraorigi.png"  alt width="100"  height="100">
+            </div>
+            <div>
+                <br>
+               <h1 class="float-end d-block text-center">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤAGENDAR CONSULTAㅤㅤㅤ</h1> <div class="header-icon"><br></div> 
+            </div>
+            <br>
+            <div clas="bg-primary text-center p-3 position-relative" >
+                <br>
+                <button class="btn-voltar" onclick="history.back()">
+                <img class="float-start d-block" src="img/back1.png" alt="Voltar" >
+                </button>
+
+            </div>
+            
+        </div>
+        </div>
+    </header>---->
+  <!-- Conteúdo -->
+  
+  <div class="container ">
+
+    <!-- Seleção de Especialidade -->
+    <h5 class="mb-3">Selecione a especialidade</h5>
+   
+    <div class="d-grid gap-2">
+     <button class="btn btn-outline-primary">Sangue</button>
+      <button class="btn btn-outline-primary">Imagem</button>
+      <button class="btn btn-outline-primary">Fezes</button>
+      <button class="btn btn-outline-primary">Urina</button>
+      <button class="btn btn-outline-primary">Ginecológico</button>
+   
+</div>
+    <!-- Botões de navegação -->
+    <div class="d-flex justify-content-between mt-3">
+      <button class="btn btn-success">Avançar</button>
+      
+    </div>
+
+<br>
+<div class="cor">
+  <br>
+  <h2>Meus agendamentos</h2>
+ <section class="my-appointments section-card">
+  <div class="appointment-status">
+  <img src="img/carregando.png" alt="Carregando" class="rotating-icon" width="40" height="40" />
+  <p>Você ainda não possui agendamentos futuros</p>
+</div>
+        </section>
+        </div>
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/68da791d311aad1952561541/1j6ami6qq';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+
+     <!-- Histórico -->
+    <div class="mt-4">
+      <h5>Histórico de agendamentos</h5>
+      <div class="card mb-2">
+        <div class="card-body d-flex">
+          <img src="img/medica.png" class="rounded-circle me-3 medica-img" alt="foto">
+          <div>
+            <strong>Encaminhado pela Dra Alice Ferreira</strong><br>
+            <small>Tipo de Exame: Sangue </small><br>
+            <small>UBS Vila Magini - Mauá SP</small><br>
+            <small>Data: 26/06/2025</small>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-2">
+        <div class="card-body d-flex">
+          <img src="img/medico.png" class="rounded-circle me-3 medico-img" alt="foto" >
+          <div>
+            <strong> Encaminhada pelo Dr Ricardo Borges</strong><br>
+            <small>Tipo de Exame: Urina</small><br>
+            <small>UBS Itapark - Mauá SP</small><br>
+            <small>Data: 11/06/2025</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scriptagendarconsulta.js"></script>
+
+<div class="navegaçao-extra">
+<a href="exameagenconexao.php">Clientes Cadastrados</a>
+</div>
+
+</body>
+</html>
+

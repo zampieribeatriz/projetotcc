@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendamento SUS</title> <link rel="icon" href="img/circle_blue_transparent.png" type="img-icons">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {
+background-color: #fff5cc; /* fundo amarelinho */
+font-family: Arial, sans-serif;
+}
+
+/* Cabeçalho azul: Estilos Ajustados */
+.header-bar {
+background-color: #468cd3;
+color: white;
+padding: 10px 15px; /* Adiciona padding para espaço interno */
+display: flex; /* Habilita flexbox para alinhamento */
+align-items: center; /* Centraliza itens verticalmente */
+justify-content: space-between; /* Distribui espaço entre os itens */
+}
+
+/* Logo (100x100 pixels conforme seu código) */
+.header-logo {
+width: 100px;
+height: 100px;
+}
+
+/* Título */
+.header-title {
+color: white; /* Corrigido para branco para contraste */
+font-size: 20px;
+flex-grow: 1; /* Permite que o título ocupe o espaço central */
+text-align: center;
+margin: 0; /* Remove margens extras */
+}
+
+/* Botão Voltar/Home */
+.btn-back-icon {
+width: 32px;
+height: 32px;
+}
+
+/* Caixa de aviso verde */
+.alerta {
+background-color: #73bf91cc;
+padding: 20px;
+text-align: center;
+margin: 20px auto;
+width: 100%;
+max-width: 4000px; 
+border-radius: 6px;
+font-size: 22px;
+font-weight: 500;
+}
+
+/* Estilo dos inputs */
+.form-box {
+background: #fff5cc; /* fundo amarelinho */
+padding: 20px;
+border-radius: 8px;
+width: 100%;
+max-width: 400px; /* <<< limita largura */
+margin: 20px auto; /* <<< centraliza */
+text-align: left;
+}
+
+.input-group {
+margin-bottom: 20px;
+position: relative;
+}
+
+label {
+font-weight: normal;
+color: black;
+display: block;
+margin-bottom: 6px;
+}
+
+input {
+width: 100%;
+padding: 10px 40px 10px 10px;
+border: 2px solid #a259f7; /* borda roxa */
+border-radius: 6px;
+outline: none;
+background: white;
+}
+
+input:focus {
+border-color: #7a36c4;
+box-shadow: 0 0 5px rgba(122,54,196,0.5);
+}
+
+.input-group .icon {
+right: 10px;
+top: 35px;
+font-size: 20px;
+color: #555;
+cursor: pointer;
+}
+
+
+button {
+background-color: #73bf91;
+border: none;
+padding: 12px;
+width: 100%;
+border-radius: 6px;
+color: white;
+font-weight: bold;
+font-size: 16px;
+cursor: pointer;
+margin-top: 10px;
+}
+
+
+.link-extra {
+margin-top: 15px;
+text-align: center;
+}
+
+.link-extra a {
+text-decoration: none;
+color: #468cd3;
+font-weight: bold;
+}
+
+.link-extra a:hover {
+text-decoration: underline;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+    <a href="#" class="d-flex align-items-center me-3">
+        <img src="img/suspiraorigi.png" alt="Logo SUS" class="header-logo">  
+    </a>
+    
+    <h1 class="header-title">USAR MINHA CONTA</h1>
+
+    <a class="btn btn-link p-0" href="/perfil/Perfil.html" role="button">
+        <img src="img/back.png" alt="Voltar" class="btn-back-icon">
+    </a>
+</div>
+
+
+<div class="alerta">
+Por favor, vincule a conta de outro usuário na sua!
+</div>
+
+<br>
+
+
+<div class="form-box">
+<form id="cadastroForm" action="cadastro1processandooforms.php" method="POST">
+
+<div class="input-group">
+<label for="idcartao">ID CARTÃO SUS*</label>
+<input type="number" id="idcartao" name="idcartao" required>
+</div>
+
+<div class="input-group">
+<label for="nome">NOME COMPLETO</label>
+<input type="text" id="nome" name="nome" required>
+</div>
+
+<div class="input-group">
+<label for="cpf">CPF*</label>
+<input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+</div>
+
+<button type="submit">CADASTRAR</button>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="link-extra">
+<a href="cadoutrapessoa.php">Dúvidas? Entre aqui</a>
+</div>
+</div>
+
+</body>
+</html>
