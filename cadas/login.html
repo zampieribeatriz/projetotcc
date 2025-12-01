@@ -1,41 +1,204 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="login.css"> 
-    <link rel="icon" href="img/circle_blue_transparent.png" type="img-icons">
-</head>
-<body class="body">
-<br><br>
-    <div class="container">
-        <!-- nav -->
-        <div class="top-section">
-                <img src="suspiraorigi.png" alt="Logo Suspira">
-            <div class="subtitulo">Praticidade na saúde, a um clique</div>
-        </div>
-        <!-- Formulário -->
-        <div class="form-section">
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="CPF ou número do sus">
-                <label for="floatingInput">Usuário</label>
-        </div>
-             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Digite sua senha">
-                <label for="floatingPassword">Senha</label>
-             </div>
-            <button class="entrar-btn" href="/index.html">ENTRAR</button>
-        
-        <!-- Rodapé -->
-        <div class="rodape">
-            Ainda não tem uma conta? <a href="cadastro1.html">Crie aqui!</a>
-        </div>
-        </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendamento SUS</title> <link rel="icon" href="img/circle_blue_transparent.png" type="img-icons">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="icon" href="img/suspiraorigi.png" type="img-icons">
+<style>
+body {
+background-color: #fff5cc; /* fundo amarelinho */
+font-family: Arial, sans-serif;
+}
 
-    </div>
-    <script src="script.js"></script>
+/* Cabeçalho azul */
+.header {
+background-color: #468cd3;
+display: flex;
+align-items: center;
+color:white;
+font-family: 'Arial';
+
+
+}
+
+.header img {
+width: 20px;
+height: 20px;
+}
+
+
+.imgbz {
+    width: 50px;
+    height: 50px;
+}
+.header h1 {
+color: black;
+font-size: 20px;
+flex: 1;
+text-align: center;
+margin: 0;
+
+}
+
+.header .btn-back {
+background: none;
+border: 1px solid black;
+border-radius: 6px;
+padding: 4px 6px;
+font-size: 18px;
+color: black;
+cursor: pointer;
+}
+
+.row{
+background-color: rgb(70,148,211);
+  color:white;
+}
+
+
+/* Estilo dos inputs */
+.form-box {
+background: #fff5cc; /* fundo amarelinho */
+padding: 20px;
+border-radius: 8px;
+width: 100%;
+max-width: 400px; /* <<< limita largura */
+margin: 20px auto; /* <<< centraliza */
+text-align: left;
+}
+
+.input-group {
+margin-bottom: 20px;
+position: relative;
+}
+
+label {
+font-weight: bold;
+color: black;
+display: block;
+margin-bottom: 6px;
+}
+
+input {
+width: 100%;
+padding: 10px 40px 10px 10px;
+border: 2px solid #a259f7; /* borda roxa */
+border-radius: 6px;
+outline: none;
+background: white;
+}
+
+input:focus {
+border-color: #7a36c4;
+box-shadow: 0 0 5px rgba(122,54,196,0.5);
+}
+
+/* Ícone dentro do campo */
+.input-group .icon {
+
+right: 10px;
+top: 35px;
+font-size: 20px;
+color: #555;
+cursor: pointer;
+}
+
+/* Botão verde */
+.submit{
+background-color: #73bf91;
+border: none;
+padding: 12px;
+width: 100%;
+border-radius: 6px;
+color: white;
+font-weight: bold;
+font-size: 16px;
+cursor: pointer;
+margin-top: 10px;
+}
+
+/* Link de dúvidas */
+.link-extra {
+margin-top: 15px;
+text-align: center;
+}
+
+.link-extra a {
+text-decoration: none;
+color: #468cd3;
+font-weight: bold;
+}
+
+.link-extra a:hover {
+text-decoration: underline;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Cabeçalho -->
+ <div class="row">
+            <div class="container-fluid d-flex align-items-center">
+             
+                <img src="img/suspiraorigi.png" alt="" width="100" height="100">  
+                <p>
+                  <p>
+                  <br>
+                <h1 class="text-light align-content-center justify-content-center align-middle">
+                  <center><p>ㅤㅤㅤㅤㅤㅤㅤㅤㅤ  ㅤㅤㅤㅤㅤㅤㅤㅤㅤSUSpira - Loginㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</h1>
+                <a class="navbar-brand" href="#"></a>
+                <div class="dropdown">
+                </div>
+            </div>
+        </div>
+            </div>
+
+<br>
+
+<!-- Formulário -->
+<div class="form-box">
+<form id="cadastroForm">
+
+<div class="input-group">
+<label for="cpf">CPF*</label>
+<input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+</div>
+
+<div class="input-group">
+<label for="password">SENHA*</label>
+<input type="password" id="password" name="password" required>
+</div>
+<div class="link-extra">
+<a href="cadoutrapessoa.php">Esqueceu a senha? Entre aqui</a></div>
+<div class="link-extra">
+<a href="cadastro1.html">Não tem conta? Entre aqui</a></div>
+<br>
+<br>
+<center><a button class="submit" href="/GWC-SUSPIRA/GWC-SUSPIRA/index.html">ENTRAR</a></center>
+</form>
+<br>
+<br>
+<br>
+<div class="link-extra">
+<a href="cadoutrapessoa.php">Dúvidas? Entre aqui</a>
+</div>
+</div>
+
 </body>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/68da791d311aad1952561541/1j6ami6qq';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->

@@ -53,8 +53,8 @@
             display: flex;
             justify-content: center; 
             align-items: center; 
-            width: 100%;
-            padding: 20px 0; 
+            width: 450px;
+            padding: 50px 0; 
         }
 
         .page-wrapper {
@@ -206,9 +206,9 @@
                 <div class="col-2 d-flex justify-content-end align-items-center p-2">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end align-content-center">
                         <div class="dropdown">
-                            <button class="btn" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" href="/index.html">
-                                <img src="img/home.png" alt="Menu" width="40" height="40">
-                            </button>
+                            <button class="btn-voltar" onclick="history.back()">
+                                <img src="img/back1.png" alt="Voltar" href="/index.html">
+                          </button>
                             </ul>
                         </div>
                     </div>
@@ -218,27 +218,13 @@
     </header>
     
     <div class="main-content-center">
-        <div class="page-wrapper">
-            
-            <div class="app-header">
-                <div class="header-left">
-                    <div class="logo-placeholder">
-                         <span class="material-icons">local_hospital</span> 
-                    </div>
-                    <h1 class="header-title">Controle de vacinas</h1>
-                </div>
-                <div class="header-right">
-                    <span class="material-icons">home</span>
-                </div>
-            </div>
-            
             <div class="mobile-screen-content">
                 
                 <div class="card-content">
                     <div id="card-image" class="card-image-placeholder">
                         Clique para adicionar a foto da carteira
                     </div>
-                    <div class="card-info">Dados de NEISA VERONICA TRINDADE LIMA</div>
+                    <div class="card-info">Dados de Rosa Maria</div>
                     <input type="file" id="file-input" accept="image/*" style="display: none;">
                 </div>
 

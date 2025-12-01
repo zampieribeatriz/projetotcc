@@ -82,3 +82,8 @@ body {
         .rodape {
             color: white;
         }
+
+.input-group {
+margin-bottom: 20px;
+position: relative;
+}
